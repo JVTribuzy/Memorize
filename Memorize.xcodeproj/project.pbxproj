@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3810282A24ABE91D009F82EA /* MemoryGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810282924ABE91D009F82EA /* MemoryGameModel.swift */; };
+		3810282A24ABE91D009F82EA /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810282924ABE91D009F82EA /* MemoryGame.swift */; };
 		3810282C24ABEBA5009F82EA /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3810282B24ABEBA5009F82EA /* EmojiMemoryGame.swift */; };
 		38199F1D24ABE43E006C06CC /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38199F1C24ABE43E006C06CC /* MemorizeApp.swift */; };
 		38199F1F24ABE43E006C06CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38199F1E24ABE43E006C06CC /* ContentView.swift */; };
@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3810282924ABE91D009F82EA /* MemoryGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGameModel.swift; sourceTree = "<group>"; };
+		3810282924ABE91D009F82EA /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		3810282B24ABEBA5009F82EA /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		38199F1924ABE43E006C06CC /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38199F1C24ABE43E006C06CC /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 		3810282724ABE7AB009F82EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3810282924ABE91D009F82EA /* MemoryGameModel.swift */,
+				3810282924ABE91D009F82EA /* MemoryGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			files = (
 				38199F1F24ABE43E006C06CC /* ContentView.swift in Sources */,
 				38199F1D24ABE43E006C06CC /* MemorizeApp.swift in Sources */,
-				3810282A24ABE91D009F82EA /* MemoryGameModel.swift in Sources */,
+				3810282A24ABE91D009F82EA /* MemoryGame.swift in Sources */,
 				3810282C24ABEBA5009F82EA /* EmojiMemoryGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

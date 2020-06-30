@@ -1,5 +1,5 @@
 //
-//  MemoryGameModel.swift
+//  MemoryGame.swift
 //  Memorize
 //
 //  Created by João Tribuzy on 30/06/20.

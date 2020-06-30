@@ -26,7 +26,7 @@ struct MemoryGame<CardContent> {
     
     struct Card: Identifiable {
         var id: Int
-        var isFaceUp: Bool = false
+        var isFaceUp: Bool = true
         var isMatched: Bool = false
         
         /// Content is a generic type, so you have so tell for the Model what's the type of CardContent

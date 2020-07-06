@@ -88,8 +88,8 @@
 		38199F1B24ABE43E006C06CC /* Memorize */ = {
 			isa = PBXGroup;
 			children = (
-				38A703B724B3A27A0047CD4D /* Extension */,
 				38199F2524ABE43F006C06CC /* Info.plist */,
+				38A703B724B3A27A0047CD4D /* Extension */,
 				38A703B424B38A070047CD4D /* Default */,
 				3810282724ABE7AB009F82EA /* Model */,
 				3810282624ABE7A6009F82EA /* View */,

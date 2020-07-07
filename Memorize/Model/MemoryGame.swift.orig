@@ -11,6 +11,21 @@ import Foundation
 struct MemoryGame<CardContent> where CardContent: Equatable {
     var cards: Array<Card>
     
+<<<<<<< HEAD
+    mutating func choose(card: Card) {
+        print("card choosen: \(card)")
+        let choosenIndex: Int = self.index(of: card)
+        self.cards[choosenIndex].isFaceUp = !self.cards[choosenIndex].isFaceUp
+    }
+    
+    func index(of card: Card) -> Int{
+        for index in 0..<self.cards.count{
+            if self.cards[index].id == card.id{
+                return index
+            }
+        }
+        return 0 // TODO: bogus!
+=======
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         get { cards.indices.filter { cards[$0].isFaceUp }.only }
         set {
@@ -32,6 +47,7 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
         }
+>>>>>>> develop
     }
     
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {

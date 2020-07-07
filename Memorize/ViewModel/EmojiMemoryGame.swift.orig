@@ -1,0 +1,40 @@
+//
+//  EmojiMemoryGame.swift
+//  Memorize
+//
+//  Created by João Tribuzy on 30/06/20.
+//
+
+import SwiftUI
+
+class EmojiMemoryGame: ObservableObject {
+    @Published private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+<<<<<<< HEAD:Memorize/EmojiMemoryGame.swift
+    
+    static var emojis: Array<String> {
+        var emojiList: Array<String> = []
+        for i in 0x1F601...0x1F64F { emojiList.append(String(UnicodeScalar(i) ?? "-")) }
+        return emojiList
+    }
+    
+    static func createMemoryGame() -> MemoryGame<String> {
+        return MemoryGame<String>(numberOfPairsOfCards: 2) { pairIndex in
+=======
+    
+    static func createMemoryGame() -> MemoryGame<String> {
+        let emojis: Array<String> = ["👻", "🕷", "🎃", "🕸"]
+        return MemoryGame<String>(numberOfPairsOfCards: 3) { pairIndex in
+>>>>>>> develop:Memorize/ViewModel/EmojiMemoryGame.swift
+            return emojis[pairIndex]
+        }
+    }
+    // MARK: - Access to the Model
+    
+    var cards: Array<MemoryGame<String>.Card>{ model.cards }
+    
+    // MARK: - Intent(s)
+    
+    func choose(card: MemoryGame<String>.Card){
+        model.choose(card: card)
+    }
+}

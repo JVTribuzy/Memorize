@@ -16,6 +16,7 @@
 		38A703B124B3894C0047CD4D /* EmojiMemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A703B024B3894C0047CD4D /* EmojiMemoryGame.swift */; };
 		38A703B624B38A190047CD4D /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A703B524B38A190047CD4D /* MemorizeApp.swift */; };
 		38A703B924B3A28F0047CD4D /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A703B824B3A28F0047CD4D /* Array+Identifiable.swift */; };
+		38A703BC24B3F9190047CD4D /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A703BB24B3F9190047CD4D /* Array+Only.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		38A703B024B3894C0047CD4D /* EmojiMemoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiMemoryGame.swift; path = ViewModel/EmojiMemoryGame.swift; sourceTree = "<group>"; };
 		38A703B524B38A190047CD4D /* MemorizeApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		38A703B824B3A28F0047CD4D /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		38A703BB24B3F9190047CD4D /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				38A703B824B3A28F0047CD4D /* Array+Identifiable.swift */,
+				38A703BB24B3F9190047CD4D /* Array+Only.swift */,
 			);
 			name = Array;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				38A703B124B3894C0047CD4D /* EmojiMemoryGame.swift in Sources */,
 				38A703B624B38A190047CD4D /* MemorizeApp.swift in Sources */,
 				38A703B924B3A28F0047CD4D /* Array+Identifiable.swift in Sources */,
+				38A703BC24B3F9190047CD4D /* Array+Only.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

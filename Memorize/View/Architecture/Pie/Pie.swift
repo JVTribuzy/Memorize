@@ -12,6 +12,16 @@ struct Pie: Shape {
     var endAngle: Angle
     var clockwise: Bool = false
     
+    var animatableData: AnimatablePair<Double, Double> {
+        get {
+            AnimatablePair(startAngle.radians, endAngle.radians)
+        }
+        set {
+            startAngle = Angle.radians(newValue.first)
+            endAngle = Angle.radians(newValue.second)
+        }
+    }
+    
     // Path is the draw that outline the shape.
     func path(in rect: CGRect) -> Path {
         let center = CGPoint(x: rect.midX, y: rect.midY)
@@ -36,8 +46,3 @@ struct Pie: Shape {
     }
 }
 
-struct Pie_Previews: PreviewProvider {
-    static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
-    }
-}

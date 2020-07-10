@@ -9,15 +9,25 @@ import Foundation
 
 /// Tell what the specifc type of 'CardContent' generic
 struct MemoryGame<CardContent> where CardContent: Equatable {
-    private(set) var cards: Array<Card>
-    
+    private(set) var cards: [Card]
+        
     private var indexOfTheOneAndOnlyFaceUpCard: Int? {
-        get { cards.indices.filter { cards[$0].isFaceUp }.only }
+        get { cards.indices.filter {cards[$0].isFaceUp}.only }
         set {
-            for index in cards.indices{
+            for index in cards.indices {
                 cards[index].isFaceUp = index == newValue
             }
         }
+    }
+    
+    init(numberOfPairsOfCard: Int, cardContentFactory: (Int) -> CardContent) {
+        cards = Array<Card>()
+        for pairIndex in 0..<numberOfPairsOfCard {
+            let content = cardContentFactory(pairIndex)
+            cards.append(Card(content: content, id: pairIndex * 2))
+            cards.append(Card(content: content, id: pairIndex * 2 + 1))
+        }
+        cards.shuffle()
     }
     
     mutating func choose(card: Card) {
@@ -27,29 +37,72 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
                     cards[chosenIndex].isMatched = true
                     cards[potentialMatchIndex].isMatched = true
                 }
-                self.cards[chosenIndex].isFaceUp = true
+                cards[chosenIndex].isFaceUp = true
             } else {
                 indexOfTheOneAndOnlyFaceUpCard = chosenIndex
             }
         }
     }
     
-    init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent) {
-        cards = Array<Card>()
-        for pairIndex in 0..<numberOfPairsOfCards{
-            let content = cardContentFactory(pairIndex)
-            cards.append(Card(id: pairIndex * 2, content: content))
-            cards.append(Card(id: pairIndex * 2 + 1,content: content))
-        }
-        cards.shuffle()
-    }
-    
     struct Card: Identifiable {
-        var id: Int
-        var isFaceUp: Bool = false
-        var isMatched: Bool = false
+        var isFaceUp = false {
+            didSet {
+                if isFaceUp {
+                    startUsingBonusTime()
+                } else {
+                    stopUsingBonusTime()
+                }
+            }
+        }
         
         /// Content is a generic type, so you have so tell for the Model what's the type of CardContent
+        var isMatched = false {
+            didSet {
+                stopUsingBonusTime()
+            }
+        }
         var content: CardContent
+        var id: Int
+        
+        var bonusTimeLimit: TimeInterval = 6
+        
+        private var faceUpTime: TimeInterval {
+            if let lastFaceUpDate = self.lastFaceUpDate {
+                return pastFaceUpTime + Date().timeIntervalSince(lastFaceUpDate)
+            } else {
+                return pastFaceUpTime
+            }
+        }
+        
+        var lastFaceUpDate: Date?
+        
+        var pastFaceUpTime: TimeInterval = 0
+        
+        var bonusTimeRemaining: TimeInterval {
+            max(0, bonusTimeLimit - faceUpTime)
+        }
+        
+        var bonusRemaining: Double {
+            (bonusTimeLimit > 0 && bonusTimeRemaining > 0) ? bonusTimeRemaining/bonusTimeLimit : 0
+        }
+        
+        var hasEarnedBonus: Bool {
+            isMatched && bonusTimeRemaining > 0
+        }
+        
+        var isConsumingBonusTime: Bool {
+            isFaceUp && !isMatched && bonusTimeRemaining > 0
+        }
+        
+        private mutating func startUsingBonusTime() {
+            if isConsumingBonusTime, lastFaceUpDate == nil {
+                lastFaceUpDate = Date()
+            }
+        }
+        
+        private mutating func stopUsingBonusTime() {
+            pastFaceUpTime = faceUpTime
+            lastFaceUpDate = nil
+        }
     }
 }

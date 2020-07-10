@@ -14,7 +14,7 @@ struct EmojiMemoryGameView: View {
         VStack {
             Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture {
-                    withAnimation(.linear(duration: 2)) {
+                    withAnimation(.linear) {
                         self.viewModel.choose(card: card)
                     }
                 }
@@ -23,7 +23,7 @@ struct EmojiMemoryGameView: View {
                 .padding()
                 .foregroundColor(Color.orange)
             Button(action: {
-                withAnimation(.easeInOut(duration: 0.5)) {
+                withAnimation(.easeInOut) {
                     viewModel.resetGame()
                 }
             }, label: { Text(LocalizedStringKey("New Game!")) })
@@ -55,7 +55,6 @@ struct CardView: View {
             }
             .cardify(isFaceUp: card.isFaceUp)
             .transition(AnyTransition.scale.animation(.linear(duration: 0.3))) // TODO: Fly away cards !
-            .rotation3DEffect(Angle.degrees(card.isFaceUp ? 0 : 180), axis: (0,1,0))
         }
     }
     
